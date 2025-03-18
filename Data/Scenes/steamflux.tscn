@@ -1,33 +1,48 @@
-[gd_scene load_steps=5 format=3 uid="uid://cboxv573pq87q"]
+[gd_scene load_steps=9 format=3 uid="uid://cboxv573pq87q"]
 
 [ext_resource type="Texture2D" uid="uid://bd4ns0eamfeps" path="res://Data/Graphics/Particles/smoke_2.png" id="1_b5v8e"]
-
-[sub_resource type="Curve" id="Curve_0g5m0"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0113636, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(0.755682, 0.47191), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 5
 
 [sub_resource type="Gradient" id="Gradient_0g5m0"]
 offsets = PackedFloat32Array(0, 0.666667, 1)
 colors = PackedColorArray(1, 1, 1, 0.784314, 1, 1, 1, 0.705882, 1, 1, 1, 0.392157)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b5v8e"]
+gradient = SubResource("Gradient_0g5m0")
 
 [sub_resource type="Curve" id="Curve_agrn8"]
 _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, -0.977528), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="CPUParticles2D" type="CPUParticles2D"]
+[sub_resource type="CurveTexture" id="CurveTexture_auwjl"]
+curve = SubResource("Curve_agrn8")
+
+[sub_resource type="Curve" id="Curve_0g5m0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0113636, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(0.755682, 0.47191), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_uihne"]
+curve = SubResource("Curve_0g5m0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kjc4v"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 3.0
+initial_velocity_min = 140.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -20.0
+linear_accel_max = -20.0
+scale_min = 0.25
+scale_max = 0.35
+scale_curve = SubResource("CurveTexture_uihne")
+color_ramp = SubResource("GradientTexture1D_b5v8e")
+hue_variation_curve = SubResource("CurveTexture_auwjl")
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
 emitting = false
 amount = 100
 texture = ExtResource("1_b5v8e")
-direction = Vector2(0, 0)
-spread = 3.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 140.0
-initial_velocity_max = 150.0
-linear_accel_min = -20.0
-linear_accel_max = -20.0
-scale_amount_min = 0.25
-scale_amount_max = 0.35
-scale_amount_curve = SubResource("Curve_0g5m0")
-color_ramp = SubResource("Gradient_0g5m0")
-hue_variation_curve = SubResource("Curve_agrn8")
+fixed_fps = 0
+draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_kjc4v")

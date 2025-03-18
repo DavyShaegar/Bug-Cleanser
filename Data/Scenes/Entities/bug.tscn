@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://uqpyhyqso3yi"]
+
+[ext_resource type="Script" uid="uid://ddgbbub8raxfo" path="res://Data/Scenes/Entities/bug.gd" id="1_eob3a"]
+[ext_resource type="Texture2D" uid="uid://clh57n3bxvork" path="res://Data/Graphics/Entities/Item_Sheet_Flora&Fauna_0.png" id="2_4edou"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ljxa"]
+atlas = ExtResource("2_4edou")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ld8bb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ljxa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ivfju"]
+
+[node name="Bug" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_eob3a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 0.785398
+sprite_frames = SubResource("SpriteFrames_ld8bb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ivfju")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

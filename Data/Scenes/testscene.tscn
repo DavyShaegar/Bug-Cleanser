@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://c7v3rqk4q6vxd"]
+[gd_scene load_steps=4 format=4 uid="uid://c7v3rqk4q6vxd"]
 
 [ext_resource type="PackedScene" uid="uid://lesocd0wi2j5" path="res://Data/Scenes/tileset.tscn" id="1_jsya7"]
-[ext_resource type="PackedScene" uid="uid://bgnp2mjc2yswv" path="res://Data/Scenes/player.tscn" id="2_mrxn5"]
+[ext_resource type="PackedScene" uid="uid://bgnp2mjc2yswv" path="res://Data/Scenes/Entities/player.tscn" id="2_mrxn5"]
+[ext_resource type="PackedScene" uid="uid://uqpyhyqso3yi" path="res://Data/Scenes/Entities/bug.tscn" id="3_c7un1"]
 
 [node name="Testscene" type="Node2D"]
 
@@ -13,6 +14,9 @@ tile_map_data = PackedByteArray("AAD//wMAAAAAAAEAAAD//wIAAAAAAAEAAAD//wEAAAAAAAE
 
 [node name="Player" parent="." instance=ExtResource("2_mrxn5")]
 position = Vector2(16, 16)
+
+[node name="Bug" parent="." instance=ExtResource("3_c7un1")]
+position = Vector2(91, 28)
 
 [editable path="Floor"]
 [editable path="Player"]
