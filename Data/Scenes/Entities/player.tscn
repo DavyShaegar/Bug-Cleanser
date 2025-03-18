@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dbagtqcsojab5" path="res://Data/Scenes/Entities/player.gd" id="1_joyt6"]
 [ext_resource type="Texture2D" uid="uid://8w6x6xgtnufq" path="res://icon.svg" id="2_61sqo"]
-[ext_resource type="PackedScene" uid="uid://cboxv573pq87q" path="res://Data/Scenes/steamflux.tscn" id="3_61sqo"]
+[ext_resource type="PackedScene" uid="uid://cboxv573pq87q" path="res://Data/Scenes/Projectiles/steamflux.tscn" id="3_61sqo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sti72"]
 animations = [{

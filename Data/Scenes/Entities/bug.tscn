@@ -19,6 +19,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ivfju"]
+radius = 8.0
+height = 32.0
 
 [node name="Bug" type="CharacterBody2D"]
 collision_layer = 4
@@ -30,6 +32,7 @@ rotation = 0.785398
 sprite_frames = SubResource("SpriteFrames_ld8bb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ivfju")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
