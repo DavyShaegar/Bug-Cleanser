@@ -528,6 +528,7 @@ sources/0 = SubResource("TileSetAtlasSource_vnrfl")
 [node name="Floor" type="TileMapLayer"]
 tile_set = SubResource("TileSet_4u2fj")
 occlusion_enabled = false
+collision_enabled = false
 
 [node name="Walls" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_vnrfl")

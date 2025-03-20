@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://uqpyhyqso3yi"]
+
+[ext_resource type="Script" uid="uid://ddgbbub8raxfo" path="res://Data/Scenes/Entities/Base/bug.gd" id="1_eob3a"]
+
+[node name="Bug" type="Node2D"]
+script = ExtResource("1_eob3a")

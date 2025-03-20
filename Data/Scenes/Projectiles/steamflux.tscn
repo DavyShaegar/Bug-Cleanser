@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cboxv573pq87q"]
+[gd_scene load_steps=10 format=3 uid="uid://cboxv573pq87q"]
 
 [ext_resource type="Texture2D" uid="uid://bd4ns0eamfeps" path="res://Data/Graphics/Particles/smoke_2.png" id="1_ybv0t"]
+[ext_resource type="Script" uid="uid://buqrt1s66auxc" path="res://Data/Scenes/Projectiles/steamflux.gd" id="2_ybv0t"]
 
 [sub_resource type="Gradient" id="Gradient_0g5m0"]
 offsets = PackedFloat32Array(0, 0.666667, 1)
@@ -38,9 +39,7 @@ scale_max = 0.35
 scale_curve = SubResource("CurveTexture_uihne")
 color_ramp = SubResource("GradientTexture1D_b5v8e")
 hue_variation_curve = SubResource("CurveTexture_auwjl")
-collision_mode = 1
-collision_friction = 0.1
-collision_bounce = 0.1
+collision_mode = 2
 
 [node name="GPUParticles2D" type="GPUParticles2D"]
 emitting = false
@@ -50,3 +49,10 @@ fixed_fps = 0
 collision_base_size = 0.1
 draw_order = 0
 process_material = SubResource("ParticleProcessMaterial_kjc4v")
+script = ExtResource("2_ybv0t")
+
+[node name="DamageTic" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="DamageTic" to="." method="_on_damage_tic_timeout"]

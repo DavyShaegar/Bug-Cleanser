@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1q3b355rhg2x"]
+
+[sub_resource type="Gradient" id="Gradient_ywwgd"]
+colors = PackedColorArray(0, 0.643137, 0, 1, 0.831373, 0.831373, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_utvky"]
+gradient = SubResource("Gradient_ywwgd")
+
+[sub_resource type="Curve" id="Curve_ywwgd"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.677835, 0.828794), 0.0, 0.0, 0, 0, Vector2(1, 0.143969), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_utvky"]
+curve = SubResource("Curve_ywwgd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ywwgd"]
+particle_flag_disable_z = true
+direction = Vector3(100, 0, 0)
+spread = 180.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_utvky")
+color = Color(0.615686, 1, 0, 1)
+color_ramp = SubResource("GradientTexture1D_utvky")
+turbulence_noise_strength = 2.55
+
+[node name="BugBlood" type="GPUParticles2D"]
+emitting = false
+amount = 50
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.99
+process_material = SubResource("ParticleProcessMaterial_ywwgd")

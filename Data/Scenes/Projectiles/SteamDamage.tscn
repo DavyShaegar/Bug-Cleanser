@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1v7v1e8lvixk"]
+
+[ext_resource type="Script" uid="uid://d0ciwnwfoyjtu" path="res://Data/Scenes/Projectiles/steam_damage.gd" id="1_xi6v1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xi6v1"]
+radius = 7.0
+
+[node name="SteamDamage" type="Area2D"]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_xi6v1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xi6v1")
+
+[node name="TimeToLive" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="TimeToLive" to="." method="_on_time_to_live_timeout"]
