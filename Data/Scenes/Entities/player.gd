@@ -38,7 +38,14 @@ func shoot() -> void:
 	elif Input.is_action_just_released("shoot"):
 		steam.emitting = false
 		
+#region DEBUG
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		%DEBUG.text = "Key Pressed: " + event.as_text()
+#endregion
+		
 func _physics_process(delta: float) -> void:
+	
 	mouse_pos = get_global_mouse_position()
 	gun_node.look_at(mouse_pos)
 	rotate_gun(mouse_pos)
