@@ -18,6 +18,7 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2dytn"]
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_joyt6")
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -1,9 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://2p112ddotkop"]
+[gd_scene load_steps=11 format=3 uid="uid://2p112ddotkop"]
 
 [ext_resource type="Script" uid="uid://qm2i2jydixp4" path="res://Data/Scenes/Entities/Enemies/bug_ant.gd" id="1_lpjyh"]
 [ext_resource type="Texture2D" uid="uid://clh57n3bxvork" path="res://Data/Graphics/Entities/Item_Sheet_Flora&Fauna_0.png" id="2_7v33t"]
 [ext_resource type="PackedScene" uid="uid://d1q3b355rhg2x" path="res://Data/Scenes/Decoration/bug_blood.tscn" id="2_ttgre"]
 [ext_resource type="Texture2D" uid="uid://bd4ns0eamfeps" path="res://Data/Graphics/Particles/smoke_2.png" id="3_fatxq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fatxq"]
+atlas = ExtResource("2_7v33t")
+region = Rect2(64, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wuv4v"]
 atlas = ExtResource("3_fatxq")
@@ -15,6 +19,14 @@ region = Rect2(64, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ttgre"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fatxq")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wuv4v")
@@ -41,12 +53,16 @@ animations = [{
 radius = 8.0
 height = 32.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fatxq"]
+radius = 32.0
+
 [node name="BugAnt" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "nav_agent")]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_lpjyh")
 speed = 20.0
 health = 10.0
+damage = 1
 reward_points = 1
 sprite = NodePath("Animation")
 nav_agent = NodePath("NavigationAgent2D")
@@ -56,16 +72,24 @@ metadata/_custom_type_script = "uid://ddgbbub8raxfo"
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 rotation = 0.785398
 sprite_frames = SubResource("SpriteFrames_ttgre")
-animation = &"idle"
+animation = &"attack"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_fatxq")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 50.0
+target_desired_distance = 30.0
 path_max_distance = 80.0
 path_postprocessing = 1
 debug_enabled = true
+
+[node name="AttackRadius" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRadius"]
+shape = SubResource("CircleShape2D_fatxq")
 
 [connection signal="animation_finished" from="Animation" to="." method="_on_animation_animation_finished"]

@@ -9,6 +9,7 @@ class_name BugEnemy
 @export_category("Enemy Stats")
 @export var speed: float
 @export var health: float
+@export var damage: int
 @export var reward_points: int
 
 # Enemy nodes
@@ -22,6 +23,7 @@ class_name BugEnemy
 enum States {
 			idle,
 			move,
+			attack,
 			death
 			}
 			
@@ -38,6 +40,8 @@ func navigate(nav: NavigationAgent2D, new_speed, delta) -> void:
 		move_and_slide()
 		set_state(States.move)
 	else:
+		nav_agent.target_position = position
+		velocity = Vector2(0,0)
 		set_state(States.idle)
 		
 func set_target(target: Vector2) -> void:
@@ -49,7 +53,7 @@ func animate() -> void:
 	
 func moving(delta, target) -> void:
 	if nav_agent.distance_to_target() > 300.0:
-		nav_agent.target_position = self.position
+		nav_agent.target_position = position
 		return 
 	set_target(target.global_position)
 	navigate(nav_agent, speed, delta)
@@ -66,3 +70,9 @@ func get_hit(damage) -> void:
 
 func death() -> void:
 	queue_free()
+
+func melee_attack(attack_target: CharacterBody2D) -> void:
+	if attack_target.current_state == States.death:
+		return
+	attack_target.health -= damage
+	print(attack_target.health)
