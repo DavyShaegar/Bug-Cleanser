@@ -1,21 +1,44 @@
-[gd_scene load_steps=11 format=3 uid="uid://2p112ddotkop"]
+[gd_scene load_steps=19 format=3 uid="uid://2p112ddotkop"]
 
 [ext_resource type="Script" uid="uid://qm2i2jydixp4" path="res://Data/Scenes/Entities/Enemies/bug_ant.gd" id="1_lpjyh"]
 [ext_resource type="Texture2D" uid="uid://clh57n3bxvork" path="res://Data/Graphics/Entities/Item_Sheet_Flora&Fauna_0.png" id="2_7v33t"]
 [ext_resource type="PackedScene" uid="uid://d1q3b355rhg2x" path="res://Data/Scenes/Decoration/bug_blood.tscn" id="2_ttgre"]
-[ext_resource type="Texture2D" uid="uid://bd4ns0eamfeps" path="res://Data/Graphics/Particles/smoke_2.png" id="3_fatxq"]
+[ext_resource type="AudioStream" uid="uid://biivhgaxwr2ew" path="res://Data/Audio/Sfx/bug_death_1.mp3" id="3_bh4ch"]
+[ext_resource type="AudioStream" uid="uid://bh2vgpw5gr2sb" path="res://Data/Audio/Sfx/bug_death_2.mp3" id="4_fj7sd"]
+[ext_resource type="AudioStream" uid="uid://dntxu3tu1v8x4" path="res://Data/Audio/Sfx/bug_walk.mp3" id="5_bh4ch"]
+[ext_resource type="Texture2D" uid="uid://gdbvluji7i7d" path="res://Data/Graphics/Entities/roach-Sheet_0.5.png" id="7_bh4ch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fatxq"]
 atlas = ExtResource("2_7v33t")
 region = Rect2(64, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wuv4v"]
-atlas = ExtResource("3_fatxq")
-region = Rect2(16, 16, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj7sd"]
+atlas = ExtResource("7_bh4ch")
+region = Rect2(0, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6ljxa"]
-atlas = ExtResource("2_7v33t")
-region = Rect2(64, 64, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ye22"]
+atlas = ExtResource("7_bh4ch")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6og5"]
+atlas = ExtResource("7_bh4ch")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyp0y"]
+atlas = ExtResource("7_bh4ch")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0df4"]
+atlas = ExtResource("7_bh4ch")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tfx2"]
+atlas = ExtResource("7_bh4ch")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_007n2"]
+atlas = ExtResource("7_bh4ch")
+region = Rect2(64, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ttgre"]
 animations = [{
@@ -29,7 +52,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wuv4v")
+"texture": SubResource("AtlasTexture_fj7sd")
 }],
 "loop": false,
 "name": &"death",
@@ -37,13 +60,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6ljxa")
+"texture": SubResource("AtlasTexture_0ye22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6og5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyp0y")
 }],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0df4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tfx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_007n2")
+}],
 "loop": true,
 "name": &"move",
 "speed": 5.0
@@ -56,7 +94,7 @@ height = 32.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_fatxq"]
 radius = 32.0
 
-[node name="BugAnt" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "nav_agent")]
+[node name="BugAnt" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "nav_agent", "audio_player")]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_lpjyh")
@@ -67,12 +105,17 @@ reward_points = 1
 sprite = NodePath("Animation")
 nav_agent = NodePath("NavigationAgent2D")
 blood = ExtResource("2_ttgre")
+audio_player = NodePath("AudioStreamPlayer2D")
+audio_death_list = Array[AudioStreamMP3]([ExtResource("3_bh4ch"), ExtResource("4_fj7sd")])
+walk_sound = ExtResource("5_bh4ch")
 metadata/_custom_type_script = "uid://ddgbbub8raxfo"
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 rotation = 0.785398
 sprite_frames = SubResource("SpriteFrames_ttgre")
-animation = &"attack"
+animation = &"move"
+frame = 1
+frame_progress = 0.396146
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -91,5 +134,8 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRadius"]
 shape = SubResource("CircleShape2D_fatxq")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"
 
 [connection signal="animation_finished" from="Animation" to="." method="_on_animation_animation_finished"]

@@ -11,14 +11,18 @@ config_version=5
 [application]
 
 config/name="Bug Cleanser"
-run/main_scene="uid://c7v3rqk4q6vxd"
+run/main_scene="uid://chakkagchu7x1"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalHandler="*res://Data/Globals/global_handler.gd"
+
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [file_customization]
 
@@ -29,6 +33,10 @@ folder_colors={
 "res://Data/Objects/": "purple",
 "res://Data/Scenes/": "gray"
 }
+
+[gui]
+
+theme/custom_font="uid://5nblu8vgbi0j"
 
 [input]
 

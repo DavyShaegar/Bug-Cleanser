@@ -1,7 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8ekeg5p3v4lp"]
+[gd_scene load_steps=5 format=3 uid="uid://b8ekeg5p3v4lp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hv8gu"]
+bg_color = Color(0.0903165, 0.0611347, 0.0531765, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 4.0
+expand_margin_right = 10.0
+expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iwg47"]
-bg_color = Color(0.352941, 0.352941, 0.117647, 1)
+bg_color = Color(0.401292, 0.401316, 0.138913, 1)
+border_width_left = 6
+border_width_top = 2
+border_width_right = 6
+border_width_bottom = 2
+border_color = Color(0.161944, 0.118248, 0.10413, 1)
+corner_radius_top_left = 10
+corner_radius_bottom_right = 10
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_med4h"]
+bg_color = Color(0.192212, 0.192188, 0.0488127, 1)
+border_width_left = 6
+border_width_top = 2
+border_width_right = 6
+border_width_bottom = 2
+border_color = Color(0.161944, 0.118248, 0.10413, 1)
+corner_radius_top_left = 10
+corner_radius_bottom_right = 10
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2h604"]
+bg_color = Color(0.304701, 0.304686, 0.0967527, 1)
+border_width_left = 6
+border_width_top = 2
+border_width_right = 6
+border_width_bottom = 2
+border_color = Color(0.161944, 0.118248, 0.10413, 1)
 corner_radius_top_left = 10
 corner_radius_bottom_right = 10
 corner_detail = 1
@@ -27,8 +65,13 @@ theme_override_constants/margin_bottom = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_iwg47")
+theme_override_styles/panel = SubResource("StyleBoxFlat_hv8gu")
 
 [node name="Button" type="Button" parent="MarginContainer/PanelContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxFlat_iwg47")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_med4h")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2h604")
 text = "Button"

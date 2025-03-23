@@ -27,9 +27,9 @@ func set_state(new_state: States = States.idle) -> void:
 	if current_state != new_state:
 		current_state = new_state
 
-func rotate_gun(mouse_pos: Vector2) -> void:
+func rotate_gun(mousePos: Vector2) -> void:
 	var centre: Vector2 = global_position
-	var angle: float = (mouse_pos - centre).angle()
+	var angle: float = (mousePos - centre).angle()
 	gun_node.position = Vector2(30,0).rotated(angle)
 	
 func shoot() -> void:

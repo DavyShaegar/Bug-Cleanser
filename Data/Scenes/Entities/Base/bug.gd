@@ -18,6 +18,13 @@ class_name BugEnemy
 @export var nav_agent: NavigationAgent2D
 @export var player: Player
 @export var blood: PackedScene
+@export var audio_player: AudioStreamPlayer2D
+
+# Sounds
+@export_category("Sounds Data")
+@export var audio_death_list: Array[AudioStreamMP3]
+@export var attack_sound: AudioStreamMP3
+@export var walk_sound: AudioStreamMP3
 
 # States
 enum States {
@@ -30,6 +37,19 @@ enum States {
 func set_state(new_state: States = States.idle) -> void:
 	if current_state != new_state and current_state != States.death:
 		current_state = new_state
+		
+func play_sound() -> void:
+	if !audio_player.is_playing():
+		
+		match current_state:
+			States.move:
+				audio_player.stream = walk_sound
+			States.attack:
+				pass
+			States.death:
+				audio_player.stream = audio_death_list.pick_random()
+						
+		audio_player.play()
 
 func navigate(nav: NavigationAgent2D, new_speed, delta) -> void:
 	if !nav.is_navigation_finished():
@@ -39,6 +59,7 @@ func navigate(nav: NavigationAgent2D, new_speed, delta) -> void:
 		look_at(nav.get_next_path_position())
 		move_and_slide()
 		set_state(States.move)
+		play_sound()
 	else:
 		nav_agent.target_position = position
 		velocity = Vector2(0,0)
@@ -58,17 +79,22 @@ func moving(delta, target) -> void:
 	set_target(target.global_position)
 	navigate(nav_agent, speed, delta)
 
-func get_hit(damage) -> void:
-	health -= damage
+func get_hit(incoming_damage: int) -> void:
+	if current_state == States.death:
+		return
+		
+	health -= incoming_damage
 	var in_blood = blood.instantiate()
 	add_child(in_blood)
 	in_blood.emitting = true
 	
 	if health <= 0:
-		print("dead")
 		set_state(States.death)
+		audio_player.stop()
+		play_sound()
 
 func death() -> void:
+	await get_tree().create_timer(1.0).timeout # Remove later
 	queue_free()
 
 func melee_attack(attack_target: CharacterBody2D) -> void:

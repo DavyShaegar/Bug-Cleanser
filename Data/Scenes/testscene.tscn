@@ -15,8 +15,8 @@ text = "Bug Cleanser
 
 [node name="DEBUG" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
-offset_left = 960.0
-offset_right = 1152.0
+offset_left = 1728.0
+offset_right = 1920.0
 offset_bottom = 32.0
 text = "Key Pressed: "
 
