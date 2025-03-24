@@ -92,6 +92,9 @@ func get_hit(incoming_damage: int) -> void:
 		set_state(States.death)
 		audio_player.stop()
 		play_sound()
+		
+		GlobalHandler.reward_player_score(reward_points, global_position)
+
 
 func death() -> void:
 	await get_tree().create_timer(1.0).timeout # Remove later

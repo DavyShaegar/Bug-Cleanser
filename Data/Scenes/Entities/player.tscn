@@ -1,18 +1,44 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgnp2mjc2yswv"]
+[gd_scene load_steps=11 format=3 uid="uid://bgnp2mjc2yswv"]
 
 [ext_resource type="Script" uid="uid://dbagtqcsojab5" path="res://Data/Scenes/Entities/player.gd" id="1_joyt6"]
-[ext_resource type="Texture2D" uid="uid://8w6x6xgtnufq" path="res://icon.svg" id="2_61sqo"]
+[ext_resource type="Texture2D" uid="uid://bvr2pi3dj4mu7" path="res://Data/Graphics/Entities/bug_cleanser-Sheet.png" id="2_nqd26"]
 [ext_resource type="PackedScene" uid="uid://cboxv573pq87q" path="res://Data/Scenes/Projectiles/steamflux.tscn" id="3_61sqo"]
+[ext_resource type="Texture2D" uid="uid://45pd45puk0ov" path="res://Data/Graphics/Entities/steam_gun.png" id="4_j4lak"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4lak"]
+atlas = ExtResource("2_nqd26")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa63u"]
+atlas = ExtResource("2_nqd26")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pd3uj"]
+atlas = ExtResource("2_nqd26")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq0qy"]
+atlas = ExtResource("2_nqd26")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sti72"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_61sqo")
+"texture": SubResource("AtlasTexture_j4lak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa63u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pd3uj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq0qy")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"idle",
+"speed": 4.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2dytn"]
@@ -27,8 +53,9 @@ zoom = Vector2(3, 3)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_sti72")
+animation = &"idle"
+frame_progress = 0.527908
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_2dytn")
@@ -37,3 +64,6 @@ shape = SubResource("CapsuleShape2D_2dytn")
 
 [node name="Steam" parent="Gun" instance=ExtResource("3_61sqo")]
 unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("4_j4lak")

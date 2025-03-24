@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy0d4u4jsqfkk"]
+
+[ext_resource type="FontFile" uid="uid://5nblu8vgbi0j" path="res://Data/Graphics/UI/Super Pancake.ttf" id="1_bmbi0"]
+
+[node name="FloatingScore" type="Label"]
+z_index = 100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1836.0
+offset_bottom = -1060.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_bmbi0")
+theme_override_font_sizes/font_size = 20
+text = "+ Score!"
