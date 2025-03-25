@@ -14,5 +14,5 @@ grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_bmbi0")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 18
 text = "+ Score!"

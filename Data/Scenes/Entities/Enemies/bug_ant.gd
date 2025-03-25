@@ -12,13 +12,12 @@ func radius_attack() -> void:
 			# Player takes damage when attack animation is finished
 
 func  _ready() -> void:
-	player = get_node("../Player")
-	set_target(player.global_position)
+	set_target(GlobalHandler.playerPos)
 
 func  _physics_process(delta: float) -> void:
 	animate()
 	if current_state == States.death: return
-	moving(delta, player)
+	moving(delta, GlobalHandler.playerPos)
 	radius_attack()
 
 func _on_animation_animation_finished() -> void:

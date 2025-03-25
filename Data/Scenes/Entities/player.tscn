@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bgnp2mjc2yswv"]
+[gd_scene load_steps=12 format=3 uid="uid://bgnp2mjc2yswv"]
 
 [ext_resource type="Script" uid="uid://dbagtqcsojab5" path="res://Data/Scenes/Entities/player.gd" id="1_joyt6"]
 [ext_resource type="Texture2D" uid="uid://bvr2pi3dj4mu7" path="res://Data/Graphics/Entities/bug_cleanser-Sheet.png" id="2_nqd26"]
+[ext_resource type="Script" uid="uid://ct2gkufw6d5wb" path="res://Data/Scenes/Entities/player_ui.gd" id="2_sa63u"]
 [ext_resource type="PackedScene" uid="uid://cboxv573pq87q" path="res://Data/Scenes/Projectiles/steamflux.tscn" id="3_61sqo"]
 [ext_resource type="Texture2D" uid="uid://45pd45puk0ov" path="res://Data/Graphics/Entities/steam_gun.png" id="4_j4lak"]
 
@@ -46,6 +47,23 @@ animations = [{
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_joyt6")
+
+[node name="UI" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_sa63u")
+
+[node name="TITLEDEBUG" type="Label" parent="UI"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Bug Cleanser
+- Prototype Version"
+
+[node name="Score" type="Label" parent="UI"]
+unique_name_in_owner = true
+offset_top = 48.0
+offset_right = 192.0
+offset_bottom = 80.0
+text = "Key Pressed: "
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true

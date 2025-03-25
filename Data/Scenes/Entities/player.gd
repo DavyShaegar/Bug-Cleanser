@@ -30,7 +30,6 @@ func gun_shoot_shake() -> void:
 	var tween: Tween = create_tween()
 	tween.set_trans(Tween.TRANS_BOUNCE)
 	tween.tween_property($Sprite2D, "position", $Sprite2D.position +randoPos, 0.1)
-
 	
 func set_state(new_state: States = States.idle) -> void:
 	if current_state != new_state:
@@ -65,14 +64,13 @@ func animate(mousePos: Vector2) -> void:
 	else:
 		sprite.flip_h = false
 	sprite.play(States.find_key(current_state))
-	
-#region DEBUG
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		%DEBUG.text = "Key Pressed: " + event.as_text()
-#endregion
 		
 func _physics_process(delta: float) -> void:
+	GlobalHandler.playerPos = global_position
+	if health <= 0:
+		set_state(States.death)
+		return
+		
 	set_state(States.idle)
 	mouse_pos = get_global_mouse_position()
 	animate(mouse_pos)
@@ -88,11 +86,5 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed * delta)
 		velocity.y = move_toward(velocity.y, 0, speed * delta)
-
-	if Input.is_action_just_pressed("spawn ant"):
-		var ant = load("res://Data/Scenes/Entities/Enemies/bug_ant.tscn")
-		var in_ant = ant.instantiate()
-		in_ant.global_position = %Marker2D.global_position
-		add_sibling(in_ant)
 		
 	move_and_slide()

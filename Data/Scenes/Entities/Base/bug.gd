@@ -76,7 +76,7 @@ func moving(delta, target) -> void:
 	if nav_agent.distance_to_target() > 300.0:
 		nav_agent.target_position = position
 		return 
-	set_target(target.global_position)
+	set_target(target)
 	navigate(nav_agent, speed, delta)
 
 func get_hit(incoming_damage: int) -> void:

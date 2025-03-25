@@ -1,6 +1,8 @@
 extends Node
 
 @onready var player_score: int = 0
+@onready var playerPos: Vector2
+
 # Use this for harcore mode (1.0 normal game, 2 harcore)
 @onready var player_score_multiplier: int = 1.0
 
