@@ -9,7 +9,7 @@ extends Control
 @onready var options_sPos: Vector2 = %Options.position
 @onready var exit_sPos: Vector2 = %Exit.position
 @onready var optionsMenu_sPos: Vector2 = %OptionsMenu.position
-
+@onready var spawnPoints: Array[Marker2D] = [%EnemySpawn_left, %EnemySpawn_down, %EnemySpawn_right]
 #region Menus Handler
 func smooth_ui_movement(node: Control, finalPos: Vector2, duration: float) -> void:
 	var tween: Tween = create_tween()
@@ -51,12 +51,22 @@ func move_options_menu_out() -> void:
 	
 #endregion
 
+func add_decoration_entities() -> void:
+	for i in range(10):
+		var spawn: Marker2D = spawnPoints.pick_random()
+		var instance_bug = EnemyHandler.create_bug("ant")
+		instance_bug.global_position = spawn.global_position
+		instance_bug.scale = Vector2(4,4)
+		await get_tree().create_timer(randf()).timeout
+		%DecorationEnemies.add_child(instance_bug)
+
 func _ready() -> void:
-	
+	randomize()
 	GlobalHandler.fade_out_screen(screen, 1.0)
 	move_buttons_to_position()
 	
 	await get_tree().create_timer(2.0).timeout
+	add_decoration_entities()
 	menu_interaction = true
 	
 func _on_start_pressed() -> void:
@@ -68,7 +78,6 @@ func _on_start_pressed() -> void:
 		await get_tree().create_timer(1.0).timeout
 		get_tree().change_scene_to_file("res://Data/Scenes/testscene.tscn")
 		
-
 func _on_options_pressed() -> void:
 	if menu_interaction == true:
 		menu_interaction = false
@@ -83,7 +92,6 @@ func _on_exit_pressed() -> void:
 		GlobalHandler.fade_in_screen(screen, 1.0)
 		await get_tree().create_timer(1.5).timeout
 		get_tree().quit()
-
 
 func _on_options_back_pressed() -> void:
 	if menu_interaction == true:

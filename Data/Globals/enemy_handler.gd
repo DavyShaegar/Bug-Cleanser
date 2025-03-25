@@ -2,10 +2,10 @@ extends Node
 
 # Use this to rank encounters (higher difficulties spawn more enemies)
 @onready var difficulty_list: Dictionary[String, int] = {
-														"Easy": 4, 
-														"Medium": 8, 
-														"Hard": 12, 
-														"Insane": 20}
+														"Easy": 12, 
+														"Medium": 20, 
+														"Hard": 30, 
+														"Insane": 50}
 @onready var ant: PackedScene = load("res://Data/Scenes/Entities/Enemies/bug_ant.tscn")
 
 func create_bug(bug: String) -> CharacterBody2D:
