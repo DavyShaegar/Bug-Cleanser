@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://dm81ivmc3v2q6"]
+
+[ext_resource type="Script" uid="uid://bvj1tv6pylccd" path="res://Data/Scenes/Menus/pause_menu.gd" id="1_ba0v6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ba0v6"]
+bg_color = Color(0.350079, 0.245025, 0.053842, 1)
+border_width_left = 6
+border_width_top = 2
+border_width_right = 6
+border_width_bottom = 2
+border_color = Color(0.161944, 0.118248, 0.10413, 1)
+corner_radius_top_left = 10
+corner_radius_bottom_right = 10
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jh13i"]
+bg_color = Color(0.149667, 0.096593, 0.0107799, 1)
+border_width_left = 6
+border_width_top = 2
+border_width_right = 6
+border_width_bottom = 2
+border_color = Color(0.161944, 0.118248, 0.10413, 1)
+corner_radius_top_left = 10
+corner_radius_bottom_right = 10
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0d170"]
+bg_color = Color(0.250059, 0.170948, 0.0280803, 1)
+border_width_left = 6
+border_width_top = 2
+border_width_right = 6
+border_width_bottom = 2
+border_color = Color(0.161944, 0.118248, 0.10413, 1)
+corner_radius_top_left = 10
+corner_radius_bottom_right = 10
+corner_detail = 1
+
+[node name="PauseMenu" type="MarginContainer"]
+process_mode = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1472.0
+offset_bottom = -760.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ba0v6")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 120
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Game Paused"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxFlat_ba0v6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jh13i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0d170")
+text = "Resume"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Button" to="." method="_on_pausebutton_pressed"]

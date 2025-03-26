@@ -9,6 +9,7 @@ class_name Player
 @onready var steam: GPUParticles2D = %Steam
 @onready var gun_node: Node2D = $Gun
 @onready var sprite: AnimatedSprite2D = %AnimatedSprite2D
+@onready var pause_menu: PackedScene = load("res://Data/Scenes/Menus/pause_menu.tscn")
 
 # Other variables
 @onready var mouse_pos: Vector2
@@ -64,7 +65,18 @@ func animate(mousePos: Vector2) -> void:
 	else:
 		sprite.flip_h = false
 	sprite.play(States.find_key(current_state))
-		
+
+# Adds menu first, then pauses the engine. This way all the necessary functions will be processed
+func pause() -> void:
+	var in_pause: MarginContainer = pause_menu.instantiate()
+	in_pause.global_position = global_position
+	add_child(in_pause)
+	get_tree().paused = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	
 func _physics_process(delta: float) -> void:
 	GlobalHandler.playerPos = global_position
 	if health <= 0:
@@ -86,5 +98,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed * delta)
 		velocity.y = move_toward(velocity.y, 0, speed * delta)
+		
+	if Input.is_action_just_pressed("pause"):
+		pause()
 		
 	move_and_slide()

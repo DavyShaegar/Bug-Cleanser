@@ -70,6 +70,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_hv8gu")
 [node name="Button" type="Button" parent="MarginContainer/PanelContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 24
 theme_override_styles/hover = SubResource("StyleBoxFlat_iwg47")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_med4h")

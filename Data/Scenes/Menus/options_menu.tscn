@@ -125,6 +125,12 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+item_count = 2
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "1280x720"
+popup/item_1/id = 1
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer3/VBoxContainer"]
 layout_mode = 2
@@ -140,6 +146,7 @@ text = "Fullcreen"
 [node name="Fullscreen" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer3/VBoxContainer/HBoxContainer3"]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_default_cursor_shape = 2
 
 [node name="HSeparator2" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -176,6 +183,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
 min_value = -50.0
 max_value = 50.0
 value = -50.0
@@ -198,6 +206,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
 min_value = -50.0
 max_value = 50.0
 value = -50.0
@@ -216,6 +225,7 @@ text = "Enable Music"
 [node name="MuteMusic" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_default_cursor_shape = 2
 
 [node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -231,112 +241,181 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+[node name="ControlList" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 12
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/ControlList"]
 layout_mode = 2
 theme_override_constants/separation = 24
 alignment = 1
 
-[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/ControlList/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 18
 text = "Move Up"
+vertical_alignment = 1
 
-[node name="Ctrl_UP" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="move_up" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/ControlList/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_default_cursor_shape = 2
 placeholder_text = "..."
 alignment = 1
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/ControlList"]
 layout_mode = 2
 theme_override_constants/separation = 24
 alignment = 1
 
-[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer2"]
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/ControlList/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 18
 text = "Move Down"
+vertical_alignment = 1
 
-[node name="Ctrl_DOWN" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer2"]
+[node name="move_down" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/ControlList/HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_default_cursor_shape = 2
 placeholder_text = "..."
 alignment = 1
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/ControlList"]
 layout_mode = 2
 theme_override_constants/separation = 24
 alignment = 1
 
-[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3"]
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/ControlList/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 18
 text = "Move Left"
+vertical_alignment = 1
 
-[node name="Ctrl_LEFT" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3"]
+[node name="move_left" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/ControlList/HBoxContainer3"]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_default_cursor_shape = 2
 placeholder_text = "..."
 alignment = 1
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/ControlList"]
 layout_mode = 2
 theme_override_constants/separation = 24
 alignment = 1
 
-[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer4"]
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/ControlList/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 18
 text = "Move Right"
+vertical_alignment = 1
 
-[node name="Ctrl_RIGHT" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer4"]
+[node name="move_right" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/ControlList/HBoxContainer4"]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_default_cursor_shape = 2
 placeholder_text = "..."
 alignment = 1
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
 
-[node name="HBoxContainer6" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="HBoxContainer6" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/ControlList"]
 layout_mode = 2
 theme_override_constants/separation = 24
 alignment = 1
 
-[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer6"]
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/ControlList/HBoxContainer6"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 18
 text = "Attack"
+vertical_alignment = 1
 
-[node name="Ctrl_ATTACK" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer6"]
+[node name="shoot" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/ControlList/HBoxContainer6"]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_default_cursor_shape = 2
 placeholder_text = "..."
 alignment = 1
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/ControlList"]
 layout_mode = 2
 theme_override_constants/separation = 24
 alignment = 1
 
-[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer5"]
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/ControlList/HBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 18
 text = "Pause"
+vertical_alignment = 1
 
-[node name="Ctrl_PAUSE" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer5"]
+[node name="pause" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/ControlList/HBoxContainer5"]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_default_cursor_shape = 2
 placeholder_text = "..."
 alignment = 1
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
 
 [node name="Buttons" type="Control" parent="."]
 layout_mode = 2
@@ -378,10 +457,17 @@ offset_right = 192.0
 [node name="Button" parent="Buttons/Apply/MarginContainer/PanelContainer" index="0"]
 text = "Apply"
 
+[connection signal="item_selected" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer3/VBoxContainer/HBoxContainer/Resolution" to="." method="_on_resolution_item_selected"]
 [connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer3/VBoxContainer/HBoxContainer3/Fullscreen" to="." method="_on_fullscreen_toggled"]
 [connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3/MuteMusic" to="." method="_on_mute_music_toggled"]
+[connection signal="focus_entered" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/ControlList/HBoxContainer/move_up" to="." method="_on_ctrl_up_focus_entered"]
+[connection signal="focus_entered" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/ControlList/HBoxContainer2/move_down" to="." method="_on_ctrl_down_focus_entered"]
+[connection signal="focus_entered" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/ControlList/HBoxContainer3/move_left" to="." method="_on_ctrl_left_focus_entered"]
+[connection signal="focus_entered" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/ControlList/HBoxContainer4/move_right" to="." method="_on_ctrl_right_focus_entered"]
+[connection signal="focus_entered" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/ControlList/HBoxContainer6/shoot" to="." method="_on_ctrl_attack_focus_entered"]
+[connection signal="focus_entered" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/ControlList/HBoxContainer5/pause" to="." method="_on_ctrl_pause_focus_entered"]
 
 [editable path="Buttons/Back"]
 [editable path="Buttons/Apply"]
