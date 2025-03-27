@@ -69,8 +69,7 @@ func animate(mousePos: Vector2) -> void:
 # Adds menu first, then pauses the engine. This way all the necessary functions will be processed
 func pause() -> void:
 	var in_pause: MarginContainer = pause_menu.instantiate()
-	in_pause.global_position = global_position
-	add_child(in_pause)
+	%UI.add_child(in_pause)
 	get_tree().paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	

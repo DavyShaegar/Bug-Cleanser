@@ -27,6 +27,13 @@ func wobble_floating_text(text_node: Label) -> void:
 		else:
 			randoPos += Vector2(-10.0, -4.0)
 	
+func size_up_menu(menu: Control) -> void:
+	var tween: Tween = create_tween()
+
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(menu, "scale", Vector2.ONE, 0.5).from(Vector2.ZERO)
+	
 func fade_in_screen(screen: CanvasModulate, duration: float) -> void:
 	var tween: Tween = create_tween()
 

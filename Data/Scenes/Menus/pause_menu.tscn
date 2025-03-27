@@ -36,31 +36,47 @@ corner_radius_bottom_right = 10
 corner_detail = 1
 
 [node name="PauseMenu" type="MarginContainer"]
-process_mode = 2
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1472.0
-offset_bottom = -760.0
+process_mode = 3
+custom_minimum_size = Vector2(425, 350)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -153.5
+offset_right = 140.0
+offset_bottom = 153.5
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 script = ExtResource("1_ba0v6")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 120
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Game Paused"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(140, 40)
+custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -71,4 +87,33 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_jh13i")
 theme_override_styles/normal = SubResource("StyleBoxFlat_0d170")
 text = "Resume"
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Button" to="." method="_on_pausebutton_pressed"]
+[node name="QuitMenu" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxFlat_ba0v6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jh13i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0d170")
+text = "Quit to Menu"
+
+[node name="QuitDesktop" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxFlat_ba0v6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jh13i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0d170")
+text = "Quit to Desktop
+"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/Button" to="." method="_on_pausebutton_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/QuitMenu" to="." method="_on_quit_menu_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/QuitDesktop" to="." method="_on_quit_desktop_pressed"]

@@ -13,6 +13,8 @@ config_version=5
 config/name="Bug Cleanser"
 run/main_scene="uid://chakkagchu7x1"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/use_filter=false
+boot_splash/image="uid://bvr2pi3dj4mu7"
 config/icon="res://icon.svg"
 
 [autoload]
