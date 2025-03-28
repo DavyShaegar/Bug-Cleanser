@@ -125,6 +125,7 @@ shape = SubResource("CapsuleShape2D_fatxq")
 target_desired_distance = 30.0
 path_max_distance = 80.0
 path_postprocessing = 1
+avoidance_enabled = true
 debug_enabled = true
 
 [node name="AttackRadius" type="Area2D" parent="."]

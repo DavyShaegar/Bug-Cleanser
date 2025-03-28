@@ -104,4 +104,4 @@ func melee_attack(attack_target: CharacterBody2D) -> void:
 	if attack_target.current_state == States.death:
 		return
 	attack_target.health -= damage
-	print(attack_target.health)
+	attack_target.update_health_bar()

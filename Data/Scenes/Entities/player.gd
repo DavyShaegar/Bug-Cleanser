@@ -23,7 +23,9 @@ enum States {
 			}
 			
 @onready var current_state: States = States.idle
-
+func update_health_bar() -> void:
+	%HealthBar.value = health
+	
 # This simulates recoil on the gun
 func gun_shoot_shake() -> void:
 	var randoPos: Vector2 = Vector2(randf_range(-4, 4), randf_range(-4, 4))
@@ -78,13 +80,13 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	GlobalHandler.playerPos = global_position
+	mouse_pos = get_global_mouse_position()
+	animate(mouse_pos)
+
 	if health <= 0:
 		set_state(States.death)
 		return
 		
-	set_state(States.idle)
-	mouse_pos = get_global_mouse_position()
-	animate(mouse_pos)
 	gun_node.look_at(mouse_pos)
 	rotate_gun(mouse_pos)
 	shoot()
@@ -94,11 +96,17 @@ func _physics_process(delta: float) -> void:
 	if direction or y_dir:
 		velocity.x = direction * (speed*10) * delta
 		velocity.y = y_dir * (speed*10) * delta
+		set_state(States.move)
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed * delta)
 		velocity.y = move_toward(velocity.y, 0, speed * delta)
+		set_state(States.idle)
 		
 	if Input.is_action_just_pressed("pause"):
 		pause()
 		
 	move_and_slide()
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if sprite.animation == "death":
+		get_tree().reload_current_scene()

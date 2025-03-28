@@ -536,7 +536,7 @@ texture = ExtResource("3_4bdph")
 12:7/0 = 0
 13:7/0 = 0
 15:7/0 = 0
-15:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+15:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -2.96767, -8, -2.96767)
 16:7/0 = 0
 16:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 17:7/0 = 0
@@ -566,4 +566,5 @@ collision_enabled = false
 tile_set = SubResource("TileSet_vnrfl")
 
 [node name="WallObjects" type="TileMapLayer" parent="."]
+top_level = true
 tile_set = SubResource("TileSet_oddsi")

@@ -76,7 +76,7 @@ func _on_start_pressed() -> void:
 		move_buttons_out()
 		GlobalHandler.fade_in_screen(screen, 0.5)
 		await get_tree().create_timer(1.0).timeout
-		get_tree().change_scene_to_file("res://Data/Scenes/testscene.tscn")
+		get_tree().change_scene_to_file("res://Data/Scenes/Levels/level_01.tscn")
 		
 func _on_options_pressed() -> void:
 	if menu_interaction == true:

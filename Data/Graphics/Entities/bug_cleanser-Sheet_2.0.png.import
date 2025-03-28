@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvr2pi3dj4mu7"
-path="res://.godot/imported/bug_cleanser-Sheet.png-bbbd5ceb9558a8c344dce8ac38d0d41b.ctex"
+uid="uid://buy3uha2lmdys"
+path="res://.godot/imported/bug_cleanser-Sheet_2.0.png-7a100b5838f3b3d52195d6c7bf4d618a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Data/Graphics/Entities/bug_cleanser-Sheet.png"
-dest_files=["res://.godot/imported/bug_cleanser-Sheet.png-bbbd5ceb9558a8c344dce8ac38d0d41b.ctex"]
+source_file="res://Data/Graphics/Entities/bug_cleanser-Sheet_2.0.png"
+dest_files=["res://.godot/imported/bug_cleanser-Sheet_2.0.png-7a100b5838f3b3d52195d6c7bf4d618a.ctex"]
 
 [params]
 
