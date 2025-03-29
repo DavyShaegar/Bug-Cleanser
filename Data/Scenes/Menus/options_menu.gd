@@ -7,7 +7,6 @@ extends MarginContainer
 @onready var key_selected: LineEdit
 
 func _unhandled_input(event: InputEvent) -> void:
-	print(event.as_text())
 	if key_selected != null:
 		key_selected.text = event.as_text()
 		

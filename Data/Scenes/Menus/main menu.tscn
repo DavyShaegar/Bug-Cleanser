@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://chakkagchu7x1"]
+[gd_scene load_steps=8 format=4 uid="uid://chakkagchu7x1"]
 
 [ext_resource type="Script" uid="uid://dflyb2h5wsmyk" path="res://Data/Scenes/Menus/main_menu.gd" id="1_b45hb"]
 [ext_resource type="PackedScene" uid="uid://b8ekeg5p3v4lp" path="res://Data/Scenes/Menus/button.tscn" id="1_qsuje"]
 [ext_resource type="PackedScene" uid="uid://lesocd0wi2j5" path="res://Data/Scenes/tileset.tscn" id="2_b8m5i"]
 [ext_resource type="PackedScene" uid="uid://caiycjnuu44ot" path="res://Data/Scenes/Menus/options_menu.tscn" id="3_aed72"]
+[ext_resource type="AudioStream" uid="uid://io1kaht2i52d" path="res://Data/Audio/Sfx/button-click.mp3" id="5_xicaf"]
 
 [sub_resource type="Theme" id="Theme_b45hb"]
 default_font_size = 32
@@ -146,6 +147,11 @@ grow_vertical = 1
 
 [node name="DecorationEnemies" type="Node" parent="."]
 unique_name_in_owner = true
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_xicaf")
+bus = &"SFX"
 
 [connection signal="pressed" from="Buttons/Start/MarginContainer/PanelContainer/Button" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Buttons/Options/MarginContainer/PanelContainer/Button" to="." method="_on_options_pressed"]

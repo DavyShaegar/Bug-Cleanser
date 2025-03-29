@@ -5,11 +5,14 @@ class_name Player
 @export var speed: float = 500.0
 @export var health: float = 100.0
 
+
+
 # Player nodes
 @onready var steam: GPUParticles2D = %Steam
 @onready var gun_node: Node2D = $Gun
 @onready var sprite: AnimatedSprite2D = %AnimatedSprite2D
 @onready var pause_menu: PackedScene = load("res://Data/Scenes/Menus/pause_menu.tscn")
+@onready var blood: PackedScene = load("res://Data/Scenes/Decoration/player_blood.tscn")
 
 # Other variables
 @onready var mouse_pos: Vector2
@@ -75,6 +78,15 @@ func pause() -> void:
 	get_tree().paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
+func get_hit(damage: int) -> void:
+	health -= damage
+	var in_blood = blood.instantiate()
+	add_child(in_blood)
+	in_blood.emitting = true
+	
+	update_health_bar()
+
+	
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	
@@ -109,4 +121,5 @@ func _physics_process(delta: float) -> void:
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if sprite.animation == "death":
+		GlobalHandler.reset_game()
 		get_tree().reload_current_scene()

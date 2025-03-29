@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dm81ivmc3v2q6"]
+[gd_scene load_steps=6 format=3 uid="uid://dm81ivmc3v2q6"]
 
 [ext_resource type="Script" uid="uid://bvj1tv6pylccd" path="res://Data/Scenes/Menus/pause_menu.gd" id="1_ba0v6"]
+[ext_resource type="AudioStream" uid="uid://io1kaht2i52d" path="res://Data/Audio/Sfx/button-click.mp3" id="2_jh13i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ba0v6"]
 bg_color = Color(0.350079, 0.245025, 0.053842, 1)
@@ -113,6 +114,11 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_jh13i")
 theme_override_styles/normal = SubResource("StyleBoxFlat_0d170")
 text = "Quit to Desktop
 "
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_jh13i")
+bus = &"SFX"
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/Button" to="." method="_on_pausebutton_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/QuitMenu" to="." method="_on_quit_menu_pressed"]

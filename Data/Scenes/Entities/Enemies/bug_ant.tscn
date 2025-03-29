@@ -1,12 +1,12 @@
 [gd_scene load_steps=19 format=3 uid="uid://2p112ddotkop"]
 
 [ext_resource type="Script" uid="uid://qm2i2jydixp4" path="res://Data/Scenes/Entities/Enemies/bug_ant.gd" id="1_lpjyh"]
-[ext_resource type="Texture2D" uid="uid://clh57n3bxvork" path="res://Data/Graphics/Entities/Item_Sheet_Flora&Fauna_0.png" id="2_7v33t"]
+[ext_resource type="Texture2D" uid="uid://clh57n3bxvork" path="res://Data/Graphics/Entities/Player/Item_Sheet_Flora&Fauna_0.png" id="2_7v33t"]
 [ext_resource type="PackedScene" uid="uid://d1q3b355rhg2x" path="res://Data/Scenes/Decoration/bug_blood.tscn" id="2_ttgre"]
 [ext_resource type="AudioStream" uid="uid://biivhgaxwr2ew" path="res://Data/Audio/Sfx/bug_death_1.mp3" id="3_bh4ch"]
 [ext_resource type="AudioStream" uid="uid://bh2vgpw5gr2sb" path="res://Data/Audio/Sfx/bug_death_2.mp3" id="4_fj7sd"]
 [ext_resource type="AudioStream" uid="uid://dntxu3tu1v8x4" path="res://Data/Audio/Sfx/bug_walk.mp3" id="5_bh4ch"]
-[ext_resource type="Texture2D" uid="uid://gdbvluji7i7d" path="res://Data/Graphics/Entities/roach-Sheet_0.5.png" id="7_bh4ch"]
+[ext_resource type="Texture2D" uid="uid://gdbvluji7i7d" path="res://Data/Graphics/Entities/Enemies/roach-Sheet_0.5.png" id="7_bh4ch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fatxq"]
 atlas = ExtResource("2_7v33t")

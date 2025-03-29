@@ -4,7 +4,7 @@ extends Node
 @onready var playerPos: Vector2
 
 # Use this for harcore mode (1.0 normal game, 2 harcore)
-@onready var player_score_multiplier: int = 1.0
+@onready var player_score_multiplier: int = 1
 
 @onready var floating_score: PackedScene = load("res://Data/Scenes/Decoration/floating_score.tscn")
 
@@ -58,6 +58,16 @@ func add_score(score: int) -> void:
 func show_floating_score(score: int, position: Vector2) -> void:
 	var in_floating_score: Label = floating_score.instantiate()
 	in_floating_score.global_position = position
-	in_floating_score.text = "+ " + str(score) + "!"
+	in_floating_score.text = "+ " + str(score * player_score_multiplier) + "!"
 	add_child(in_floating_score)
 	wobble_floating_text(in_floating_score)
+
+func set_game_to_hard_mode() -> void:
+	player_score_multiplier = 2
+	
+func set_game_to_easy_mode() -> void: # Dummy for now
+	pass
+	
+func reset_game() -> void:
+	player_score = 0
+	player_score_multiplier = 2

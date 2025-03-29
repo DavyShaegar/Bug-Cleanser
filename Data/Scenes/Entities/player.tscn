@@ -1,11 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://bgnp2mjc2yswv"]
+[gd_scene load_steps=26 format=3 uid="uid://bgnp2mjc2yswv"]
 
 [ext_resource type="Script" uid="uid://dbagtqcsojab5" path="res://Data/Scenes/Entities/player.gd" id="1_joyt6"]
 [ext_resource type="Script" uid="uid://ct2gkufw6d5wb" path="res://Data/Scenes/Entities/player_ui.gd" id="2_sa63u"]
 [ext_resource type="PackedScene" uid="uid://cboxv573pq87q" path="res://Data/Scenes/Projectiles/steamflux.tscn" id="3_61sqo"]
-[ext_resource type="Texture2D" uid="uid://8w6x6xgtnufq" path="res://icon.svg" id="3_pd3uj"]
-[ext_resource type="Texture2D" uid="uid://45pd45puk0ov" path="res://Data/Graphics/Entities/steam_gun.png" id="4_j4lak"]
-[ext_resource type="Texture2D" uid="uid://buy3uha2lmdys" path="res://Data/Graphics/Entities/bug_cleanser-Sheet_2.0.png" id="4_pd3uj"]
+[ext_resource type="Texture2D" uid="uid://bhxnnxn25hybw" path="res://Data/Graphics/Entities/Player/bug_cleanser.png" id="3_sa63u"]
+[ext_resource type="Texture2D" uid="uid://45pd45puk0ov" path="res://Data/Graphics/Entities/Enemies/steam_gun.png" id="4_j4lak"]
+[ext_resource type="Texture2D" uid="uid://coxv383m0y1ge" path="res://Data/Graphics/Entities/Player/2d_lights_and_shadows_neutral_point_light.webp" id="6_pd3uj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sa63u"]
 bg_color = Color(0, 0, 0, 0.223529)
@@ -34,64 +34,69 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nk5ev"]
-atlas = ExtResource("3_pd3uj")
-region = Rect2(64, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sa63u"]
-atlas = ExtResource("4_pd3uj")
-region = Rect2(0, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_pd3uj"]
-atlas = ExtResource("4_pd3uj")
-region = Rect2(32, 0, 32, 32)
+atlas = ExtResource("3_sa63u")
+region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fq0qy"]
-atlas = ExtResource("4_pd3uj")
-region = Rect2(64, 0, 32, 32)
+atlas = ExtResource("3_sa63u")
+region = Rect2(32, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p6mwu"]
-atlas = ExtResource("4_pd3uj")
-region = Rect2(96, 0, 32, 32)
+atlas = ExtResource("3_sa63u")
+region = Rect2(64, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ov815"]
-atlas = ExtResource("4_pd3uj")
-region = Rect2(0, 32, 32, 32)
+atlas = ExtResource("3_sa63u")
+region = Rect2(96, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xg53x"]
-atlas = ExtResource("4_pd3uj")
-region = Rect2(32, 32, 32, 32)
+atlas = ExtResource("3_sa63u")
+region = Rect2(128, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uv8ib"]
-atlas = ExtResource("4_pd3uj")
-region = Rect2(64, 32, 32, 32)
+atlas = ExtResource("3_sa63u")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pbeqw"]
-atlas = ExtResource("4_pd3uj")
-region = Rect2(96, 32, 32, 32)
+atlas = ExtResource("3_sa63u")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b7cro"]
-atlas = ExtResource("4_pd3uj")
-region = Rect2(128, 32, 32, 32)
+atlas = ExtResource("3_sa63u")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_twhmg"]
-atlas = ExtResource("4_pd3uj")
+atlas = ExtResource("3_sa63u")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nk5ev"]
+atlas = ExtResource("3_sa63u")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3283y"]
+atlas = ExtResource("3_sa63u")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcf2x"]
+atlas = ExtResource("3_sa63u")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjgnh"]
+atlas = ExtResource("3_sa63u")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fuik0"]
+atlas = ExtResource("3_sa63u")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8y0t"]
+atlas = ExtResource("3_sa63u")
 region = Rect2(160, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sti72"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nk5ev")
-}],
-"loop": false,
-"name": &"death",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sa63u")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pd3uj")
 }, {
@@ -100,18 +105,18 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p6mwu")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 4.0
 }, {
-"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ov815")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xg53x")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_uv8ib")
 }, {
@@ -123,6 +128,29 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_twhmg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nk5ev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3283y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcf2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjgnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fuik0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8y0t")
 }],
 "loop": true,
 "name": &"move",
@@ -141,18 +169,13 @@ script = ExtResource("1_joyt6")
 unique_name_in_owner = true
 script = ExtResource("2_sa63u")
 
-[node name="TITLEDEBUG" type="Label" parent="UI"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Bug Cleanser
-- Prototype Version"
-
 [node name="Score" type="Label" parent="UI"]
 unique_name_in_owner = true
-offset_top = 48.0
-offset_right = 192.0
-offset_bottom = 80.0
-text = "Key Pressed: "
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 200.0
+offset_bottom = 55.0
+text = "Score"
 
 [node name="Label" type="Label" parent="UI"]
 offset_left = 120.0
@@ -193,5 +216,10 @@ unique_name_in_owner = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("4_j4lak")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+shadow_enabled = true
+shadow_color = Color(0.230315, 0.230315, 0.230315, 0)
+texture = ExtResource("6_pd3uj")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

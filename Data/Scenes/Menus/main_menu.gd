@@ -10,6 +10,10 @@ extends Control
 @onready var exit_sPos: Vector2 = %Exit.position
 @onready var optionsMenu_sPos: Vector2 = %OptionsMenu.position
 @onready var spawnPoints: Array[Marker2D] = [%EnemySpawn_left, %EnemySpawn_down, %EnemySpawn_right]
+
+# Sounds
+@onready var click: AudioStreamPlayer = %Click
+
 #region Menus Handler
 func smooth_ui_movement(node: Control, finalPos: Vector2, duration: float) -> void:
 	var tween: Tween = create_tween()
@@ -70,15 +74,17 @@ func _ready() -> void:
 	menu_interaction = true
 	
 func _on_start_pressed() -> void:
+	click.play()
 	if menu_interaction == true:
 		menu_interaction = false
 		
 		move_buttons_out()
 		GlobalHandler.fade_in_screen(screen, 0.5)
 		await get_tree().create_timer(1.0).timeout
-		get_tree().change_scene_to_file("res://Data/Scenes/Levels/level_01.tscn")
+		get_tree().change_scene_to_file("res://Data/Scenes/Levels/intro_difficulty.tscn")
 		
 func _on_options_pressed() -> void:
+	click.play()
 	if menu_interaction == true:
 		menu_interaction = false
 		
@@ -86,6 +92,7 @@ func _on_options_pressed() -> void:
 		move_options_menu_in()
 	
 func _on_exit_pressed() -> void:
+	click.play()
 	if menu_interaction == true:
 		menu_interaction = false
 		
@@ -94,6 +101,7 @@ func _on_exit_pressed() -> void:
 		get_tree().quit()
 
 func _on_options_back_pressed() -> void:
+	click.play()
 	if menu_interaction == true:
 		menu_interaction = false
 
@@ -102,4 +110,5 @@ func _on_options_back_pressed() -> void:
 	
 ## WIP
 func _on_options_apply_pressed() -> void:
+	click.play()
 	pass # Replace with function body.

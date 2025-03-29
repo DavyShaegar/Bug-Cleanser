@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1q3b355rhg2x"]
+[gd_scene load_steps=7 format=3 uid="uid://ce660ykciu0p2"]
 
-[ext_resource type="Script" uid="uid://dfnl7rr2btds2" path="res://Data/Scenes/Decoration/particleDeletion.gd" id="1_utvky"]
+[ext_resource type="Script" uid="uid://dfnl7rr2btds2" path="res://Data/Scenes/Decoration/particleDeletion.gd" id="1_nn3aa"]
 
 [sub_resource type="Gradient" id="Gradient_ywwgd"]
-colors = PackedColorArray(0, 0.643137, 0, 1, 0.831373, 0.831373, 0, 1)
+colors = PackedColorArray(0.831373, 0, 0, 1, 0.429629, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_utvky"]
 gradient = SubResource("Gradient_ywwgd")
@@ -15,25 +15,24 @@ point_count = 3
 [sub_resource type="CurveTexture" id="CurveTexture_utvky"]
 curve = SubResource("Curve_ywwgd")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ywwgd"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ycg6e"]
 particle_flag_disable_z = true
 direction = Vector3(100, 0, 0)
 spread = 180.0
 initial_velocity_max = 30.0
 gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_utvky")
-color = Color(0.615686, 1, 0, 1)
+color = Color(0.615686, 0, 0, 1)
 color_ramp = SubResource("GradientTexture1D_utvky")
 turbulence_noise_strength = 2.55
 
-[node name="BugBlood" type="GPUParticles2D"]
+[node name="PlayerBlood" type="GPUParticles2D"]
 emitting = false
-amount = 50
-lifetime = 0.5
+amount = 40
+lifetime = 0.4
 one_shot = true
 explosiveness = 1.0
-randomness = 0.99
-process_material = SubResource("ParticleProcessMaterial_ywwgd")
-script = ExtResource("1_utvky")
+process_material = SubResource("ParticleProcessMaterial_ycg6e")
+script = ExtResource("1_nn3aa")
 
 [connection signal="finished" from="." to="." method="_on_finished"]

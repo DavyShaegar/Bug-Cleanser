@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clh57n3bxvork"
-path="res://.godot/imported/Item_Sheet_Flora&Fauna_0.png-ee9b60fccd6feba91447c783976dc840.ctex"
+uid="uid://bhxnnxn25hybw"
+path="res://.godot/imported/bug_cleanser.png-b15318dba9c1178aee80002d986b454a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Data/Graphics/Entities/Item_Sheet_Flora&Fauna_0.png"
-dest_files=["res://.godot/imported/Item_Sheet_Flora&Fauna_0.png-ee9b60fccd6feba91447c783976dc840.ctex"]
+source_file="res://Data/Graphics/Entities/Player/bug_cleanser.png"
+dest_files=["res://.godot/imported/bug_cleanser.png-b15318dba9c1178aee80002d986b454a.ctex"]
 
 [params]
 

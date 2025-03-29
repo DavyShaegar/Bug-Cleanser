@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://45pd45puk0ov"
-path="res://.godot/imported/steam_gun.png-dc0be19d5ee90e261b677d219b9a1adf.ctex"
+uid="uid://clh57n3bxvork"
+path="res://.godot/imported/Item_Sheet_Flora&Fauna_0.png-02308861ec3f93bd8504473ae9be3eb4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Data/Graphics/Entities/steam_gun.png"
-dest_files=["res://.godot/imported/steam_gun.png-dc0be19d5ee90e261b677d219b9a1adf.ctex"]
+source_file="res://Data/Graphics/Entities/Player/Item_Sheet_Flora&Fauna_0.png"
+dest_files=["res://.godot/imported/Item_Sheet_Flora&Fauna_0.png-02308861ec3f93bd8504473ae9be3eb4.ctex"]
 
 [params]
 
